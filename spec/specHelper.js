@@ -27,3 +27,7 @@ global.chai = chai;
 global.td = td;
 global.React = React;
 global.store = store;
+
+global.requireModule= (module) => {
+  return require(`../src/builder/${module}`);
+};

@@ -4,7 +4,7 @@ describe('Modal Reducer', () => {
   let mockAction = { type: "mock" };
 
   beforeEach(() => {
-    reducer = require('../../src/builder/reducers').modalReducer;
+    reducer = requireModule('reducers').modalReducer;
   });
 
   describe('initial state', () => {
