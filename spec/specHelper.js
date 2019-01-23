@@ -31,3 +31,8 @@ global.store = store;
 global.requireModule= (module) => {
   return require(`../src/builder/${module}`);
 };
+
+global.spyOnComponentMethod = (component, method, spy) => {
+  component.instance()[method] = spy;
+  component.update();
+};
