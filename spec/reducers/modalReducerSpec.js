@@ -14,4 +14,10 @@ describe('Modal Reducer', () => {
     });
   });
 
+  describe('TOGGLE_MODAL', () => {
+    it('toggles the opened state', () => {
+      const action = { type: 'TOGGLE_MODAL' };
+      expect(reducer([], action)).to.deep.equal({ open: true });
+    });
+  });
 });
