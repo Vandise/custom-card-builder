@@ -9,6 +9,8 @@ export default class TextBoxForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    console.log(this.refs);
   }
 
   render() {

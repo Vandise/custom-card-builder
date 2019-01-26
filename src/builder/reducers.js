@@ -12,3 +12,10 @@ export const modalReducer = handleActions({
 }, {
   open: false,
 });
+
+export const cardBuilderReducer = handleActions({
+  
+}, {
+  name: 'Card title',
+  fields: [],
+});
