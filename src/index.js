@@ -15,7 +15,7 @@ window.store = store;
 export default ReactDOM.render(
   <Provider store={store}>
     <div>
-      <TxtBoxFrm type='test' />
+      <TxtBoxFrm type='TEXT_BOX' />
       <CardPreviewContainer />
     </div>
   </Provider>, EL

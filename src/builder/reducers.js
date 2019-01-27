@@ -22,6 +22,7 @@ export const modalReducer = handleActions({
 
 export const cardBuilderReducerState = {
   name: 'Card title',
+  fieldCount: 0,
   fields: [],
 };
 
@@ -39,7 +40,8 @@ export const cardBuilderReducer = handleActions({
 
     return {
       ...state,
-      fields
+      fields,
+      fieldCount: fields.length,
     };
   },
 

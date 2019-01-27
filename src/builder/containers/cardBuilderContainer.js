@@ -1,11 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import WidgetTypes from '../widgets/types';
+import Widgets from '../widgets/';
 
-class CardBuilderContainer extends React.Component {
+export class CardBuilderContainer extends React.Component {
 
   generateForm() {
-    
+    return this.props.fields.map((field) => {
+      const Widget = Widgets[field.type];
+      const Component = Widget.getComponent();
+      return (
+        <div className='field-wrapper'>
+          <Component {...field} />
+        </div>
+      );
+    });
   }
 
   render() {
@@ -29,7 +37,8 @@ class CardBuilderContainer extends React.Component {
 
 const mapStateToProps = state => ({
   fields: state.cardBuilder.fields,
-  name: state.cardBuilder.name
+  name: state.cardBuilder.name,
+  fieldCount: state.cardBuilder.fieldCount,
 });
 
 const mapDispatchToProps = dispatch => ({
