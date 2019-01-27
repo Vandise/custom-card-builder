@@ -41,6 +41,7 @@ describe('Text Box Form', () => {
     });
 
     describe('when the form is submitted', () => {
+
       it('calls onSubmit()', () => {
         const spy = sinon.spy();
         wrapper = mount(<Form />);
@@ -50,6 +51,20 @@ describe('Text Box Form', () => {
 
         expect(spy).to.have.beenCalled;
       });
+
+      it('adds the field to the fields state', () => {
+        wrapper = mount(<Form type='test' />);
+        setHTMLNodeValue(wrapper.find('#widget-textbox-label'), 'Test Label');
+        wrapper.find('.widget-form-submit').simulate('submit');
+
+        expect(store.getState().cardBuilder.fields).to.deep.include({
+          label: 'Test Label',
+          placeholder: '',
+          autofocus: '',
+          maxlength: '' 
+        });
+      });
+
     });
   });
 });

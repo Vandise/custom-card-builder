@@ -1,16 +1,24 @@
 import React from 'react';
+import { dispatch } from '../../store';
+import { ADD_FIELD } from '../../actions';
 
 export default class TextBoxForm extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.type = props.widgetType;
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
 
-    console.log(this.refs);
+    const field = {};
+    Object.keys(this.refs).forEach((k) => {
+      field[k] = this.refs[k].value
+    });
+
+    dispatch(ADD_FIELD(field));
   }
 
   render() {

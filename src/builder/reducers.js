@@ -1,6 +1,14 @@
 import { handleActions } from 'redux-actions';
 
+export const modalReducerState = {
+  open: false
+};
+
 export const modalReducer = handleActions({
+
+  RESET: (state, action) => {
+    return Object.assign({}, state, modalReducerState);
+  },
 
   TOGGLE_MODAL: (state, action) => {
     return {
@@ -9,11 +17,19 @@ export const modalReducer = handleActions({
     };
   },
 
-}, {
-  open: false,
-});
+}, modalReducerState);
+
+
+export const cardBuilderReducerState = {
+  name: 'Card title',
+  fields: [],
+};
 
 export const cardBuilderReducer = handleActions({
+
+  RESET: (state, action) => {
+    return Object.assign({}, state, cardBuilderReducerState);
+  },
 
   ADD_FIELD: (state, action) => {
     const { field } = action.payload;
@@ -27,7 +43,4 @@ export const cardBuilderReducer = handleActions({
     };
   },
 
-}, {
-  name: 'Card title',
-  fields: [],
-});
+}, cardBuilderReducerState);

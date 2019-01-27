@@ -36,3 +36,7 @@ global.spyOnComponentMethod = (component, method, spy) => {
   component.instance()[method] = spy;
   component.update();
 };
+
+global.setHTMLNodeValue = (node, value) => {
+  node.getDOMNode().value = value;
+};
