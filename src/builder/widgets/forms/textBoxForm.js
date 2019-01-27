@@ -6,14 +6,14 @@ export default class TextBoxForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.type = props.widgetType;
+    this.type = props.type;
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
 
-    const field = {};
+    const field = { type: this.type };
     Object.keys(this.refs).forEach((k) => {
       field[k] = this.refs[k].value
     });
@@ -51,7 +51,7 @@ export default class TextBoxForm extends React.Component {
           <div className='input-section'>
             <label htmlFor='widget-maxlen-label'>
               <span className='widget-label'>Max Length</span>
-              <input type='number' name='widget-maxlen-label' id='widget-maxlen-label' min="0" max="128" ref='maxlength'/>
+              <input type='number' name='widget-maxlen-label' id='widget-maxlen-label' min="0" max="128" ref='maxlength' defaultValue='25' />
             </label>
           </div>
 

@@ -58,10 +58,11 @@ describe('Text Box Form', () => {
         wrapper.find('.widget-form-submit').simulate('submit');
 
         expect(store.getState().cardBuilder.fields).to.deep.include({
+          type: 'test',
           label: 'Test Label',
           placeholder: '',
           autofocus: '',
-          maxlength: '' 
+          maxlength: '25' 
         });
       });
 

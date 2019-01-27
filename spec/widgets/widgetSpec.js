@@ -8,8 +8,10 @@ describe('Widget', () => {
 
   describe('.getForm', () => {
     it('returns the initialized form', () => {
-      const form = ( <p>This is a mock form</p> );
-      expect( (new Widget('test', 'test', null, form)).getForm() ).to.equal(form);
+      const Form = ({ type }) => { return( <p>{type}</p> ); };
+      expect( (new Widget('test', 'test', null, Form)).getForm() ).to.deep.equal(
+        <Form type={'test'} />
+      );
     });
   });
 

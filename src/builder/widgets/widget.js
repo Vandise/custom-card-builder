@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default class Widget {
 
   constructor(id, label, component, form) {
@@ -8,7 +10,10 @@ export default class Widget {
   }
 
   getForm() {
-    return this.form;
+    const Form = this.form;
+    return (
+      <Form type={this.id} />
+    );
   }
 
   getComponent() {

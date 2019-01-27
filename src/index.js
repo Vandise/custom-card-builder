@@ -4,13 +4,19 @@ import { Provider } from 'react-redux';
 import { store } from './builder/store';
 
 import TxtBoxFrm from './builder/widgets/forms/textBoxForm';
+import CardPreviewContainer from './builder/containers/cardBuilderContainer';
 
 import styles from './styles/main';
 
 const EL = document.getElementById('app');
 
+window.store = store;
+
 export default ReactDOM.render(
   <Provider store={store}>
-    <TxtBoxFrm type='test' />
+    <div>
+      <TxtBoxFrm type='test' />
+      <CardPreviewContainer />
+    </div>
   </Provider>, EL
 );
