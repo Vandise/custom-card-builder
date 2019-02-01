@@ -10,7 +10,7 @@ describe('Card Builder Reducer', () => {
   describe('initial state', () => {
     it('is has a predefined state', () => {
       const initialState = { name: 'Card title', fields: [] };
-      expect(reducer(undefined, mockAction)).to.deep.equal(initialState);
+      expect(reducer(initialState, mockAction)).to.deep.equal(initialState);
     });
   });
 

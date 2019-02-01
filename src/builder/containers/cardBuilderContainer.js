@@ -4,8 +4,8 @@ import Widgets from '../widgets/';
 
 export class CardBuilderContainer extends React.Component {
 
-  generateForm() {
-    return this.props.fields.map((field) => {
+  generateForm(fields) {
+    return fields.map((field) => {
       const Widget = Widgets[field.type];
       const Component = Widget.getComponent();
       return (
@@ -22,12 +22,12 @@ export class CardBuilderContainer extends React.Component {
         <div className='card-name-container'>
           <label htmlFor='card-name'>
             <span className='widget-label'>Card Name</span>
-            <input type='text' id='card-name' name='card-name' placeholder='Card Name' />
+            <input type='text' id='card-name' name='card-name' placeholder='Card Name' defaultValue={this.props.name} />
           </label>
         </div>
 
         <div className='card-form-body'>
-          { this.generateForm() }
+          { this.generateForm(this.props.fields) }
         </div>
       </div>
     );
